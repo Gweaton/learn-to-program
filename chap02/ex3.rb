@@ -8,3 +8,7 @@ seconds_per_month = seconds_in_day * 31
 rough_age_in_seconds = seconds_per_month * age_in_months
 puts rough_age_in_seconds
 #=>782092800
+
+#Alternative (more accurate) method
+
+puts (Time.new - Time.gm(1992, 3, 6))
