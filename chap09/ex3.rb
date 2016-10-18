@@ -1,5 +1,5 @@
-#Old school Roman numerals
-def old_roman_numeral number
+#"Modern" Roman numerals
+def roman_numeral number
   count = ""
 
   count += "M" * (number / 1000)
@@ -11,9 +11,10 @@ def old_roman_numeral number
   count += "I" * (number % 5 / 1)
 
   puts count
+
 end
 
 puts "Give me a number to turn into Roman Numerals:"
-input = gets.chomp.to_i
+input = gets.chomp
 
-old_roman_numeral input
+roman_numeral input
