@@ -1,0 +1,20 @@
+require 'yaml'
+
+test_array = ["Give Quiche a Chance",
+              "Mutants Out!",
+              "Chameleonic Life-forms, No Thanks"]
+
+test_string = test_array.to_yaml # a YAML description of "test_array"
+
+filename = 'RimmerTshirts.txt'
+
+File.open filename, 'w' do |f|
+  f.write test_string
+end
+
+read_string = File.read filename
+
+read_array = YAML::load read_string # YAML magic
+
+puts (read_string == test_string)
+puts (read_array == test_array)
