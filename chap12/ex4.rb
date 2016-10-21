@@ -13,7 +13,13 @@ def birthday_helper name
 
   chris = Hash[names_list.zip dates_list]
 
-  chris[name]
+  bday = Time.new(chris[name][7..12], chris[name][0..2], chris[name][4..5])
+
+  age = (Time.now.year - bday.year)
+
+
+  puts "Chris(topher) is #{age} years old, and his birthday is #{chris[name]}"
+
 end
 
 puts "Which Chris' birthday would you like to find out?"
