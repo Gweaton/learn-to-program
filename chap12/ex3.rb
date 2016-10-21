@@ -10,12 +10,26 @@ def roman_to_integer string
     'd' => 500,
     'm' => 1000 }
 
-  splitted = string.downcase.split("")
-  splitted.each do |letter|
-	  count += numerals[letter]
+  count = 0
+  last = 0
+
+  index = string.length - 1
+  while index >= 0
+    c = string[index].downcase # gets downcase of input
+    index -= 1
+    val = numerals[c]
+    if val == nil
+      puts 'You have entered an invalid Roman Numeral!'
+      return
+    end
+    if val < last
+      val *= -1
+    else
+      last = val
+    end
+    count += val
   end
   puts count
-
 end
 
 puts "Please input some Roman numerals:"
