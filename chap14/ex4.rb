@@ -1,25 +1,25 @@
 #better program logger
 
-$logger_depth = 0
+$indent = 0
 
 def log block_description, &block
-  indent = "   " *$logger_depth
-  puts "#{indent} Beginning \"#{block_description}\"..."
-  $logger_depth += 1
+  space = '  ' *$indent
+  puts "#{space} Beginning \"#{block_description}\"..."
+  $indent += 1
   output = block.call
-  $logger_depth -= 1
-  puts "#{indent}...\"#{block_description}\" finished, returning: #{output}."
+  $indent -= 1
+  puts "#{space}...\"#{block_description}\" finished, returning: #{output}."
 end
 
 
 log "outer block" do
   log "some little block" do
+    log "yet another block" do
+      log "final test" do
     2 + 2
   end
-  log "yet another block" do
     5 * 2
   end
-  log "final test" do
   "Please be indented properly!"
   end
   "hello!"
